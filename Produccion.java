@@ -10,4 +10,11 @@ public class Produccion {
 		}
 		return copia;
 	}
+	public void addMusica(Musica c){
+		if(!listaDeMusica.contains(c)){
+			listaDeMusica.add(c);
+		}else{
+			System.out.println("Esa cancion ya esta añadida a la lista.");
+		}
+	}
 }

@@ -37,6 +37,18 @@ public class Musica {
         this.interprete = interprete;
     }
 
+    public void addGenero(String g){
+        if(!generos.contains(g)){
+            generos.add(g);
+        }
+    }
+
+    public void addInstrumentos(String i){
+        if(!instrumentos.contains(i)){
+         instrumentos.add(i);   
+        }
+    }
+
     public ArrayList<String> getGeneros() {
 		ArrayList<String> copia = new ArrayList<>();
 		for (int i = 0; i < generos.size(); i++) {
@@ -52,4 +64,17 @@ public class Musica {
 		}
 		return copia;
 	}
+
+    public boolean equals(Object o1){
+        try {
+            Musica aux = (Musica) o1;
+                if(titulo.equals(aux.getTitulo()) && interprete.equals(aux.getInterprete())){
+                    return true;
+                }else{
+                    return false;
+                }
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

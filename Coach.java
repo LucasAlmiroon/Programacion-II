@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Coach {
+public abstract class  Coach {
 
     private String nombre;
     private ArrayList <Participante> participantes;
@@ -11,9 +11,11 @@ public class Coach {
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public ArrayList<Participante> getParticipantes() {
 		ArrayList<Participante> copia = new ArrayList<>();
 		for (int i = 0; i < participantes.size(); i++) {
@@ -21,4 +23,22 @@ public class Coach {
 		}
 		return copia;
 	}
+
+    public void addParticipantes(Participante p){
+
+        if(!participantes.contains(p)){
+            participantes.add(p);
+        }else{
+            System.out.println("Participante repetido");
+        }
+    }
+
+    public double promedioEdad(){
+        double promedio = 0;
+        for (int i = 0; i < participantes.size(); i ++){
+            promedio += participantes.get(i).getEdad();
+        }
+
+        return promedio/participantes.size();
+    }
 }
