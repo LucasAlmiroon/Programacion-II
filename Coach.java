@@ -4,6 +4,7 @@ public abstract class  Coach {
 
     private String nombre;
     private ArrayList <Participante> participantes;
+    private ArrayList<String> listaInstrumentosEquipo;
 
     public Coach (String n){
         nombre = n;
@@ -28,6 +29,7 @@ public abstract class  Coach {
 
         if(!participantes.contains(p)){
             participantes.add(p);
+            addInstrumentosEquipo();
         }else{
             System.out.println("Participante repetido");
         }
@@ -40,5 +42,27 @@ public abstract class  Coach {
         }
 
         return promedio/participantes.size();
+    }
+
+    public void addInstrumentosEquipo(){
+		for (int i = 0; i < participantes.size(); i++) {
+            if(!participantes.get(i).getInstrumentos().containsAll(listaInstrumentosEquipo)){
+                for(int j = 0; j < participantes.get(i).getInstrumentos().size(); j++){
+                    if(!listaInstrumentosEquipo.contains(participantes.get(i).getInstrumentos().get(j))){
+                        listaInstrumentosEquipo.add(participantes.get(i).getInstrumentos().get(j));
+                    }
+                }
+		    }else{
+                System.out.println("Ya estan todos los instrumentos en la lista.");
+            }
+        }
+    }
+
+    public ArrayList<String> getInstrumentosEquipo(){
+        ArrayList<String> copia = new ArrayList<>();
+		for (int i = 0; i < listaInstrumentosEquipo.size(); i++) {
+			copia.add(listaInstrumentosEquipo.get(i));
+		}
+		return copia;
     }
 }

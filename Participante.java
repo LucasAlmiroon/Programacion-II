@@ -59,6 +59,7 @@ public class Participante {
 		}
 		return copia;
 	}
+    
     public boolean equals(Object o1){
         try {
             Participante aux = (Participante)o1;
