@@ -1,14 +1,18 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
-public abstract class  Coach {
+public class Coach {
 
     private String nombre;
     private ArrayList <Participante> participantes;
     private ArrayList<String> listaInstrumentosEquipo;
 
-    public Coach (String n){
+    public Coach(String n){
         nombre = n;
+        participantes = new ArrayList<>();
+        listaInstrumentosEquipo = new ArrayList<>();
     }
+    
     public String getNombre() {
         return nombre;
     }
@@ -26,7 +30,6 @@ public abstract class  Coach {
 	}
 
     public void addParticipantes(Participante p){
-
         if(!participantes.contains(p)){
             participantes.add(p);
             addInstrumentosEquipo();
@@ -45,17 +48,15 @@ public abstract class  Coach {
     }
 
     public void addInstrumentosEquipo(){
-		for (int i = 0; i < participantes.size(); i++) {
-            if(!participantes.get(i).getInstrumentos().containsAll(listaInstrumentosEquipo)){
-                for(int j = 0; j < participantes.get(i).getInstrumentos().size(); j++){
-                    if(!listaInstrumentosEquipo.contains(participantes.get(i).getInstrumentos().get(j))){
-                        listaInstrumentosEquipo.add(participantes.get(i).getInstrumentos().get(j));
-                    }
-                }
-		    }else{
-                System.out.println("Ya estan todos los instrumentos en la lista.");
-            }
-        }
+		for (Participante p: participantes) {
+			ArrayList<String> instrumentos = new ArrayList<>();
+			instrumentos = p.getInstrumentos();
+			for (String i: instrumentos) {
+				if(!listaInstrumentosEquipo.contains(i)) {
+					listaInstrumentosEquipo.add(i);
+				}
+			}
+		}
     }
 
     public ArrayList<String> getInstrumentosEquipo(){
@@ -65,4 +66,35 @@ public abstract class  Coach {
 		}
 		return copia;
     }
+
+    public ArrayList<String> getIdiomas(){
+    	ArrayList<String> idiomas = new ArrayList<>();
+		for (Participante p: participantes) {
+			ArrayList<String> idiomasParciales = new ArrayList<>();
+			idiomasParciales = p.getIdiomas();
+			for (String i: idiomasParciales) {
+				if(!idiomas.contains(i)) {
+					idiomas.add(i);
+				}
+			}
+		}
+		return idiomas;
+    }
+
+    public ArrayList<String> getGenerosPreferencia(){
+    	ArrayList<String> generos = new ArrayList<>();
+		for (Participante p: participantes) {
+			ArrayList<String> generosParciales = new ArrayList<>();
+			generosParciales = p.getGeneros();
+			for (String g: generosParciales) {
+				if(!generos.contains(g)) {
+					generos.add(g);
+				}
+			}
+		}
+		Collections.sort(generos);
+		return generos;
+    }
+
+
 }
