@@ -12,6 +12,8 @@ public class Musica {
         titulo = t;
         idioma = i;
         this.interprete = interprete;
+        generos = new ArrayList<>();
+        instrumentos = new ArrayList<>();
     }
 
     public String getTitulo() {
