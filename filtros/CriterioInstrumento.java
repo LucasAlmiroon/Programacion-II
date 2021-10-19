@@ -1,3 +1,6 @@
+package filtros;
+import reality.Participante;
+
 public class CriterioInstrumento {
 
 	private String instrumento;

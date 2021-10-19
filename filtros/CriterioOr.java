@@ -1,3 +1,6 @@
+package filtros;
+import reality.Participante;
+
 public class CriterioOr {
 
 	private Criterio c1, c2;

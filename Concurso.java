@@ -1,3 +1,8 @@
+
+
+import reality.Coach;
+import reality.Participante;
+
 public class Concurso {
     public static void main(String[] args) {
         Participante Lucas = new Participante("Lucas", "Almiron", 10);
