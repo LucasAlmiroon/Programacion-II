@@ -4,6 +4,10 @@ import java.util.ArrayList;
 public class Produccion {
     private ArrayList <Musica> listaDeMusica;
 
+    public Produccion() {
+    	listaDeMusica = new ArrayList<>();
+    }
+    
     public ArrayList<Musica> getListaDeMusica() {
 		ArrayList<Musica> copia = new ArrayList<>();
 		for (int i = 0; i < listaDeMusica.size(); i++) {
@@ -15,7 +19,7 @@ public class Produccion {
 		if(!listaDeMusica.contains(c)){
 			listaDeMusica.add(c);
 		}else{
-			System.out.println("Esa cancion ya esta añadida a la lista.");
+			System.out.println("Esa cancion ya esta agregada a la lista.");
 		}
 	}
 }
