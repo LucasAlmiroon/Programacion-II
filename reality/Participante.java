@@ -91,6 +91,19 @@ public class Participante {
     	}
     }
     
+    public boolean tocaInstrumento(String i) {
+    	return instrumentos.contains(i);
+    }
+    
+    public boolean sabeIdioma(String i) {
+    	return idiomas.contains(i);
+    }
+    
+    public boolean leGustaGenero(String g) {
+    	return generos.contains(g);
+    }
+    
+    
     public boolean equals(Object o1){
         try {
             Participante aux = (Participante)o1;
