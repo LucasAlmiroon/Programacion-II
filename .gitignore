@@ -4,3 +4,11 @@
 /Musica.class
 /Participante.class
 /Produccion.class
+/Criterio.class
+/CriterioIdioma.class
+/CriterioGenero.class
+/CriterioInstrumento.class
+/CriterioAnd.class
+/CriterioOr.class
+/CriterioEdadMayor.class
+/CriterioNot.class
