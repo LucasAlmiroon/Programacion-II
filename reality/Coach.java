@@ -2,6 +2,8 @@ package reality;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import filtros.Criterio;
+
 public class Coach {
 
     private String nombre;
@@ -97,4 +99,13 @@ public class Coach {
 		return generos;
     }
 
+    public ArrayList<Participante> buscar(Criterio c){
+    	ArrayList<Participante> aux = new ArrayList<>();
+    	for (Participante p: participantes) {
+			if(c.cumple(p)) {
+				aux.add(p);
+			}
+		}
+    	return aux;
+    }
 }
