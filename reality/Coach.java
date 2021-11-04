@@ -8,12 +8,10 @@ public class Coach {
 
     private String nombre;
     private ArrayList <Participante> participantes;
-    private ArrayList<String> listaInstrumentosEquipo;
 
     public Coach(String n){
         nombre = n;
         participantes = new ArrayList<>();
-        listaInstrumentosEquipo = new ArrayList<>();
     }
     
     public String getNombre() {
@@ -35,7 +33,6 @@ public class Coach {
     public void addParticipantes(Participante p){
         if(!participantes.contains(p)){
             participantes.add(p);
-            addInstrumentosEquipo();
         }else{
             System.out.println("Participante repetido");
         }
@@ -50,24 +47,18 @@ public class Coach {
         return promedio/participantes.size();
     }
 
-    public void addInstrumentosEquipo(){
+    public ArrayList<String> getInstrumentos(){
+        ArrayList<String> instrumentos = new ArrayList<>();
 		for (Participante p: participantes) {
-			ArrayList<String> instrumentos = new ArrayList<>();
-			instrumentos = p.getInstrumentos();
-			for (String i: instrumentos) {
-				if(!listaInstrumentosEquipo.contains(i)) {
-					listaInstrumentosEquipo.add(i);
+			ArrayList<String> instrumentosParciales = new ArrayList<>();
+			instrumentosParciales = p.getInstrumentos();
+			for(String i: instrumentosParciales) {
+				if(!instrumentos.contains(i)) {
+					instrumentos.add(i);
 				}
 			}
 		}
-    }
-
-    public ArrayList<String> getInstrumentosEquipo(){
-        ArrayList<String> copia = new ArrayList<>();
-		for (int i = 0; i < listaInstrumentosEquipo.size(); i++) {
-			copia.add(listaInstrumentosEquipo.get(i));
-		}
-		return copia;
+		return instrumentos;
     }
 
     public ArrayList<String> getIdiomas(){

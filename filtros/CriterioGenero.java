@@ -10,6 +10,6 @@ public class CriterioGenero {
 	}
 
 	public boolean cumple(Participante p) {
-		return p.getGeneros().contains(genero);
+		return p.leGustaGenero(genero);
 	}
 }

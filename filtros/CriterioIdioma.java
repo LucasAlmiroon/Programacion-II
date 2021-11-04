@@ -10,6 +10,6 @@ public class CriterioIdioma {
 	}
 
 	public boolean cumple(Participante p) {
-		return p.getIdiomas().contains(idioma);
+		return p.sabeIdioma(idioma);
 	}
 }

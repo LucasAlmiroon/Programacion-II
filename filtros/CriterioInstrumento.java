@@ -10,6 +10,6 @@ public class CriterioInstrumento {
 	}
 
 	public boolean cumple(Participante p) {
-		return p.getInstrumentos().contains(instrumento);
+		return p.tocaInstrumento(instrumento);
 	}
 }
