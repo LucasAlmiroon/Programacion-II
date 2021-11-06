@@ -39,20 +39,36 @@ public class Banda extends ElementoAbstracto{
 
 	@Override
 	public ArrayList<String> getGeneros() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> generos = new ArrayList<>();
+		return generos;
 	}
 
 	@Override
 	public ArrayList<String> getIdiomas() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> idiomas = new ArrayList<>();
+		for (ElementoAbstracto m: miembros) {
+			ArrayList<String> idiomas2 = m.getIdiomas();
+			for (String i: idiomas2) {
+				if(!idiomas.contains(i)) {
+					idiomas.add(i);
+				}
+			}
+		}
+		return idiomas;
 	}
 
 	@Override
 	public ArrayList<String> getInstrumentos() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> instrumentos = new ArrayList<>();
+		for (ElementoAbstracto m: miembros) {
+			ArrayList<String> instrumentos2 = m.getInstrumentos();
+			for (String i: instrumentos2) {
+				if(!instrumentos.contains(i)) {
+					instrumentos.add(i);
+				}
+			}
+		}
+		return instrumentos;
 	}
 	
 
