@@ -39,8 +39,22 @@ public class Banda extends ElementoAbstracto{
 
 	@Override
 	public ArrayList<String> getGeneros() {
-		ArrayList<String> generos = new ArrayList<>();
-		return generos;
+		ArrayList<String> aRetornar = new ArrayList<>();
+		ArrayList<String> generosUno = new ArrayList<>(miembros.get(0).getGeneros());
+		int cantMiembros = this.cantMiembros();
+		for(String g: generosUno) {
+			int cant = 0;
+			for(int i = 0; i < cantMiembros; i++) {
+				ArrayList<String> generosProxMiembro = new ArrayList<>(miembros.get(i).getGeneros());
+				if(generosProxMiembro.contains(g)) {
+					cant++;
+				}
+			}
+			if(cant == cantMiembros-1) {
+				aRetornar.add(g);
+			}
+		}
+		return aRetornar;
 	}
 
 	@Override

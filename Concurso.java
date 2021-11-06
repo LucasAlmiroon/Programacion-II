@@ -17,7 +17,7 @@ public class Concurso {
         Participante Carlos = new Participante("Carlos", "Zoppo", 40);
         Participante solo = new Participante("Solo", "Zoppo", 40);
         
-        /*
+        
         Lucas.addGenero("Tango");
         Lucas.addGenero("Cumbia");
         
@@ -25,9 +25,9 @@ public class Concurso {
         Guido.addGenero("Rumba");
         
         Carlos.addGenero("Tango");
-        Carlos.addGenero("Reggae");
-        */
+        Carlos.addGenero("Cumbia");
         
+        /*
         Lucas.addIdioma("Tango");
         Lucas.addIdioma("Cumbia");
         
@@ -50,14 +50,24 @@ public class Concurso {
         banda1.addMiembro(banda2);
         
         Coach coach1 = new Coach("Coach 1");
+        */
+        Banda banda1 = new Banda("Banda 1");
+        Banda banda2 = new Banda("Banda solista");
         
-        coach1.addParticipantes(banda2);
+        banda2.addMiembro(Carlos);
+        
+        banda1.addMiembro(Lucas);
+        banda1.addMiembro(Guido);
+        banda1.addMiembro(banda2);
+        
+        /*coach1.addParticipantes(banda2);
         coach1.addParticipantes(banda1);
-        coach1.addParticipantes(solo);
+        coach1.addParticipantes(solo);*/
         
         
-        CriterioIdioma Tango = new CriterioIdioma("tango");
-        System.out.println(coach1.buscar(Tango));
+       /* CriterioIdioma Tango = new CriterioIdioma("tango");
+        System.out.println(coach1.buscar(Tango));*/
+        System.out.println(banda1.getGeneros());
        
     }
 
