@@ -1,7 +1,7 @@
 package filtros;
-import reality.Participante;
+import reality.ElementoAbstracto;
 
-public class CriterioIdioma {
+public class CriterioIdioma extends Criterio{
 
 	private String idioma;
 	
@@ -9,7 +9,7 @@ public class CriterioIdioma {
 		this.idioma = idioma;
 	}
 
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoAbstracto p) {
 		return p.sabeIdioma(idioma);
 	}
 }

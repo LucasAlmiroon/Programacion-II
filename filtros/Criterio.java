@@ -1,7 +1,7 @@
 package filtros;
-import reality.Participante;
+import reality.ElementoAbstracto;
 
 public abstract class Criterio {
 
-	public abstract boolean cumple(Participante p);
+	public abstract boolean cumple(ElementoAbstracto p);
 }

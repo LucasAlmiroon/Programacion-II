@@ -1,7 +1,7 @@
 package filtros;
-import reality.Participante;
+import reality.ElementoAbstracto;
 
-public class CriterioGenero {
+public class CriterioGenero extends Criterio {
 
 	private String genero;
 	
@@ -9,7 +9,7 @@ public class CriterioGenero {
 		this.genero = genero;
 	}
 
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoAbstracto p) {
 		return p.leGustaGenero(genero);
 	}
 }

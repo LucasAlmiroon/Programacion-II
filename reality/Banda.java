@@ -70,7 +70,24 @@ public class Banda extends ElementoAbstracto{
 		}
 		return instrumentos;
 	}
-	
 
+	@Override
+	public boolean leGustaGenero(String g) {
+		boolean leGusta = false;
+		for (ElementoAbstracto m: miembros) {
+			leGusta = m.leGustaGenero(g);
+			System.out.println(leGusta);
+		}
+		return leGusta;
+	}
+	
+	@Override
+	public boolean sabeIdioma(String g) {
+		boolean sabe = false;
+		for (ElementoAbstracto m: miembros) {
+			sabe = m.sabeIdioma(g);
+		}
+		return sabe;
+	}
 	
 }

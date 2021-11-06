@@ -1,7 +1,7 @@
 package filtros;
-import reality.Participante;
+import reality.ElementoAbstracto;
 
-public class CriterioInstrumento {
+public class CriterioInstrumento extends Criterio{
 
 	private String instrumento;
 	
@@ -9,7 +9,7 @@ public class CriterioInstrumento {
 		this.instrumento = instrumento;
 	}
 
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoAbstracto p) {
 		return p.tocaInstrumento(instrumento);
 	}
 }

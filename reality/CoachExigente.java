@@ -15,7 +15,7 @@ public class CoachExigente extends Coach{
         this.generosExigente = new ArrayList<>();
     }
 
-    public boolean participanteCumpleInstrumento(Participante p) {
+    public boolean participanteCumpleInstrumento(ElementoAbstracto p) {
     	boolean cumple = false;
     	for (String i: instrumentosExigente) {
 			if(p.tocaInstrumento(i)) {
@@ -25,7 +25,7 @@ public class CoachExigente extends Coach{
     	return cumple;
     }
     
-    public boolean participanteCumpleIdioma(Participante p) {
+    public boolean participanteCumpleIdioma(ElementoAbstracto p) {
     	boolean cumple = false;
     	for (String i: idiomasExigente) {
 			if(p.sabeIdioma(i)) {
@@ -35,7 +35,7 @@ public class CoachExigente extends Coach{
     	return cumple;
     }
     
-    public boolean participanteCumpleGenero(Participante p) {
+    public boolean participanteCumpleGenero(ElementoAbstracto p) {
     	boolean cumple = false;
     	for (String g: generosExigente) {
 			if(p.leGustaGenero(g)) {
@@ -46,7 +46,7 @@ public class CoachExigente extends Coach{
     }
     
 	@Override
-	public void addParticipantes(Participante p) {
+	public void addParticipantes(ElementoAbstracto p) {
 		if(participanteCumpleGenero(p) && participanteCumpleIdioma(p) && participanteCumpleInstrumento(p)){
             super.addParticipantes(p);
         }else{

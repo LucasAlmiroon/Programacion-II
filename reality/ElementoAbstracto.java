@@ -29,5 +29,11 @@ public abstract class ElementoAbstracto {
 		return nombre;
 	}
     
-    
+	public boolean tocaInstrumento(String i) {
+    	return this.getIdiomas().contains(i);
+    }
+	    
+	public abstract boolean sabeIdioma(String i);
+	    
+    public abstract boolean leGustaGenero(String g);
 }

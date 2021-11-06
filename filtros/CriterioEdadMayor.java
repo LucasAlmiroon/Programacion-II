@@ -1,7 +1,7 @@
 package filtros;
-import reality.Participante;
+import reality.ElementoAbstracto;
 
-public class CriterioEdadMayor {
+public class CriterioEdadMayor extends Criterio{
 
 	private int edad;
 	
@@ -9,7 +9,7 @@ public class CriterioEdadMayor {
 		this.edad = edad;
 	}
 
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoAbstracto p) {
 		return p.getEdad() > edad;
 	}
 }

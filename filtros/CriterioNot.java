@@ -1,7 +1,7 @@
 package filtros;
-import reality.Participante;
+import reality.ElementoAbstracto;
 
-public class CriterioNot {
+public class CriterioNot extends Criterio{
 
 	private Criterio c1;
 	
@@ -9,7 +9,7 @@ public class CriterioNot {
 		this.c1 = c1;
 	}
 
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoAbstracto p) {
 		return !c1.cumple(p);
 	}
 }

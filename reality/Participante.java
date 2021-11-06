@@ -34,6 +34,14 @@ public class Participante extends ElementoAbstracto{
     	}
     }
     
+    public void addIdioma(String i) {
+    	if(!idiomas.contains(i.toLowerCase())) {
+        	idiomas.add(i.toLowerCase());    		
+    	} else {
+    		System.out.println("El idioma " + i + " ya está agregado en " + this.getNombre());
+    	}
+    }
+    
     public void addGenero(String g) {
     	if(!generos.contains(g.toLowerCase())) {
     		generos.add(g.toLowerCase());
@@ -41,28 +49,7 @@ public class Participante extends ElementoAbstracto{
     		System.out.println("El genero " + g + " ya está agregado en " + this.getNombre());
     	}
     }
-    
-    public void addIdioma(String i) {
-    	if(!idiomas.contains(i.toLowerCase())) {
-    		idiomas.add(i.toLowerCase());
-    	} else {
-    		System.out.println("El idioma " + i + " ya está agregado en " + this.getNombre());
-    	}
-    }
-    
-    public boolean tocaInstrumento(String i) {
-    	return instrumentos.contains(i);
-    }
-    
-    public boolean sabeIdioma(String i) {
-    	return idiomas.contains(i);
-    }
-    
-    public boolean leGustaGenero(String g) {
-    	return generos.contains(g);
-    }
-    
-
+        
 	@Override
 	public double getEdad() {
 		return edad;
@@ -71,11 +58,7 @@ public class Participante extends ElementoAbstracto{
 
 	@Override
     public ArrayList<String> getGeneros() {
-		ArrayList<String> copia = new ArrayList<>();
-		for (int i = 0; i < generos.size(); i++) {
-			copia.add(generos.get(i));
-		}
-		return copia;
+		return new ArrayList<>(generos);
 	}
 	
 	@Override
@@ -114,5 +97,15 @@ public class Participante extends ElementoAbstracto{
 
     }
 
+	
+    @Override
+	public boolean leGustaGenero(String g) {
+		return this.getGeneros().contains(g);
+	}
+
+    @Override
+	public boolean sabeIdioma(String i) {
+		return this.getIdiomas().contains(i);
+	}
 
 }

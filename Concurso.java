@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import filtros.CriterioGenero;
+import filtros.CriterioIdioma;
 import reality.Banda;
 import reality.Coach;
 import reality.Participante;
@@ -13,6 +15,7 @@ public class Concurso {
         Participante Lucas = new Participante("Lucas", "Almiron", 10);
         Participante Guido = new Participante("Guido", "Zoppo", 12);
         Participante Carlos = new Participante("Carlos", "Zoppo", 40);
+        Participante solo = new Participante("Solo", "Zoppo", 40);
         
         /*
         Lucas.addGenero("Tango");
@@ -25,14 +28,17 @@ public class Concurso {
         Carlos.addGenero("Reggae");
         */
         
-        Lucas.addInstrumento("Tango");
-        Lucas.addInstrumento("Cumbia");
+        Lucas.addIdioma("Tango");
+        Lucas.addIdioma("Cumbia");
         
-        Guido.addInstrumento("Tango");
-        Guido.addInstrumento("Rumba");
+        Guido.addIdioma("Tango");
+        Guido.addIdioma("Rumba");
         
-        Carlos.addInstrumento("Tango");
-        Carlos.addInstrumento("Reggae");
+        Carlos.addIdioma("Tango");
+        Carlos.addIdioma("Reggae");
+        
+        solo.addIdioma("Tango");
+        solo.addIdioma("Guitarra");
         
         Banda banda1 = new Banda("Banda 1");
         Banda banda2 = new Banda("Banda solista");
@@ -43,8 +49,15 @@ public class Concurso {
         banda1.addMiembro(Guido);
         banda1.addMiembro(banda2);
         
-        System.out.println(banda1.getInstrumentos());
+        Coach coach1 = new Coach("Coach 1");
         
+        coach1.addParticipantes(banda2);
+        coach1.addParticipantes(banda1);
+        coach1.addParticipantes(solo);
+        
+        
+        CriterioIdioma Tango = new CriterioIdioma("tango");
+        System.out.println(coach1.buscar(Tango));
        
     }
 

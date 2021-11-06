@@ -1,7 +1,8 @@
 package filtros;
+import reality.ElementoAbstracto;
 import reality.Participante;
 
-public class CriterioAnd {
+public class CriterioAnd extends Criterio{
 
 	private Criterio c1, c2;
 	
@@ -10,7 +11,7 @@ public class CriterioAnd {
 		this.c2 = c2;
 	}
 
-	public boolean cumple(Participante p) {
+	public boolean cumple(ElementoAbstracto p) {
 		return c1.cumple(p) && c2.cumple(p);
 	}
 }
