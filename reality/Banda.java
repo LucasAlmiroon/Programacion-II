@@ -2,6 +2,8 @@ package reality;
 
 import java.util.ArrayList;
 
+import filtros.Criterio;
+
 public class Banda extends ElementoAbstracto{
 
 	private ArrayList<ElementoAbstracto> miembros;
@@ -12,8 +14,12 @@ public class Banda extends ElementoAbstracto{
 	}
 	
 	public void addMiembro(ElementoAbstracto m) {
-		miembros.add(m);
-	}
+	    if(!miembros.contains(m)){
+	    	miembros.add(m);
+        }else{
+            System.out.println("Miembro repetido");
+        }
+    }
 	
 	public ArrayList<ElementoAbstracto> getMiembros(){
 		return new ArrayList<>(miembros);
@@ -96,12 +102,26 @@ public class Banda extends ElementoAbstracto{
 	}
 	
 	@Override
-	public boolean sabeIdioma(String g) {
+	public boolean sabeIdioma(String i) {
 		boolean sabe = false;
 		for (ElementoAbstracto m: miembros) {
-			sabe = m.sabeIdioma(g);
+			sabe = m.sabeIdioma(i);
 		}
 		return sabe;
+	}
+
+	
+	@Override
+	public ArrayList<ElementoAbstracto> buscar(Criterio c) {
+		ArrayList<ElementoAbstracto> aux = new ArrayList<>();
+		if(c.cumple(this)) {
+			aux.add(this);
+			return aux;
+		}
+		for (ElementoAbstracto m: miembros) {
+			aux.addAll(m.buscar(c));
+		}
+		return aux;
 	}
 	
 }

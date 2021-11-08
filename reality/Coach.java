@@ -4,85 +4,15 @@ import java.util.Collections;
 
 import filtros.Criterio;
 
-public class Coach {
+public class Coach extends Banda{
 
-    private String nombre;
-    private ArrayList <ElementoAbstracto> participantes;
-
-    public Coach(String n){
-        nombre = n;
-        participantes = new ArrayList<>();
-    }
+    public Coach(String nombre) {
+		super(nombre);
+	}  
     
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public ArrayList<ElementoAbstracto> getParticipantes() {
-		return new ArrayList<>(participantes);
-	}
-
-    public void addParticipantes(ElementoAbstracto p){
-        if(!participantes.contains(p)){
-            participantes.add(p);
-        }else{
-            System.out.println("Participante repetido");
-        }
-    }
-
-    
-	public int cantMiembros() {
-		int total = 0;
-		for (ElementoAbstracto p: participantes) {
-			total += p.cantMiembros();
-		}
-		return total;
-	}
-	
-	
-	public double getEdad() {
-		double edad = 0;
-		for (ElementoAbstracto p: participantes) {
-			edad += p.getEdad();
-		}
-		return edad / this.cantMiembros();
-	}
-
-    public ArrayList<String> getInstrumentos(){
-        ArrayList<String> instrumentos = new ArrayList<>();
-		for (ElementoAbstracto p: participantes) {
-			ArrayList<String> instrumentosParciales = new ArrayList<>();
-			instrumentosParciales = p.getInstrumentos();
-			for(String i: instrumentosParciales) {
-				if(!instrumentos.contains(i)) {
-					instrumentos.add(i);
-				}
-			}
-		}
-		return instrumentos;
-    }
-
-    public ArrayList<String> getIdiomas(){
-    	ArrayList<String> idiomas = new ArrayList<>();
-		for (ElementoAbstracto p: participantes) {
-			ArrayList<String> idiomasParciales = new ArrayList<>();
-			idiomasParciales = p.getIdiomas();
-			for (String i: idiomasParciales) {
-				if(!idiomas.contains(i)) {
-					idiomas.add(i);
-				}
-			}
-		}
-		return idiomas;
-    }
-
     public ArrayList<String> getGeneros(){
     	ArrayList<String> generos = new ArrayList<>();
-		for (ElementoAbstracto p: participantes) {
+		for (ElementoAbstracto p: super.getMiembros()) {
 			ArrayList<String> generosParciales = new ArrayList<>();
 			generosParciales = p.getGeneros();
 			for (String g: generosParciales) {
@@ -96,7 +26,7 @@ public class Coach {
     }
 
     
-    public ArrayList<ElementoAbstracto> buscar(Criterio c){
+    /*public ArrayList<ElementoAbstracto> buscar(Criterio c){
     	ArrayList<ElementoAbstracto> aux = new ArrayList<>();
     	for (ElementoAbstracto p: participantes) {
 			if(c.cumple(p)) {
@@ -104,5 +34,5 @@ public class Coach {
 			}
 		}
     	return aux;
-    }
+    }*/
 }

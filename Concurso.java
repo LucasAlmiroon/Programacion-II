@@ -8,6 +8,7 @@ import filtros.CriterioGenero;
 import filtros.CriterioIdioma;
 import reality.Banda;
 import reality.Coach;
+import reality.CoachExigente;
 import reality.Participante;
 
 public class Concurso {
@@ -17,42 +18,35 @@ public class Concurso {
         Participante Carlos = new Participante("Carlos", "Zoppo", 40);
         Participante solo = new Participante("Solo", "Zoppo", 40);
         
-        
+        //ADD GENEROS
         Lucas.addGenero("Tango");
-        Lucas.addGenero("Cumbia");
+        Lucas.addGenero("Pop");
         
         Guido.addGenero("Tango");
         Guido.addGenero("Rumba");
+        Guido.addGenero("Cumbia");
+        Guido.addGenero("Pop");
         
         Carlos.addGenero("Tango");
         Carlos.addGenero("Cumbia");
+        Carlos.addGenero("Pop");
+      //ADD IDIOMAS
+        Lucas.addIdioma("Ingles");
+        Lucas.addIdioma("Español");
         
-        /*
-        Lucas.addIdioma("Tango");
-        Lucas.addIdioma("Cumbia");
+        Guido.addIdioma("Ingles");
+        Guido.addIdioma("Franes");
         
-        Guido.addIdioma("Tango");
-        Guido.addIdioma("Rumba");
+        Carlos.addIdioma("Ingles");
+        Carlos.addIdioma("Portugues");
         
-        Carlos.addIdioma("Tango");
-        Carlos.addIdioma("Reggae");
-        
-        solo.addIdioma("Tango");
-        solo.addIdioma("Guitarra");
+        solo.addIdioma("Ingles");
+        solo.addIdioma("Chino");
         
         Banda banda1 = new Banda("Banda 1");
         Banda banda2 = new Banda("Banda solista");
-        
-        banda2.addMiembro(Carlos);
-        
-        banda1.addMiembro(Lucas);
-        banda1.addMiembro(Guido);
-        banda1.addMiembro(banda2);
-        
+                
         Coach coach1 = new Coach("Coach 1");
-        */
-        Banda banda1 = new Banda("Banda 1");
-        Banda banda2 = new Banda("Banda solista");
         
         banda2.addMiembro(Carlos);
         
@@ -60,15 +54,14 @@ public class Concurso {
         banda1.addMiembro(Guido);
         banda1.addMiembro(banda2);
         
-        /*coach1.addParticipantes(banda2);
-        coach1.addParticipantes(banda1);
-        coach1.addParticipantes(solo);*/
+        /*coach1.addMiembro(banda2);
+        coach1.addMiembro(banda1);
+        coach1.addMiembro(solo);*/
         
-        
-       /* CriterioIdioma Tango = new CriterioIdioma("tango");
-        System.out.println(coach1.buscar(Tango));*/
         System.out.println(banda1.getGeneros());
-       
+    
+      
+      
     }
 
     

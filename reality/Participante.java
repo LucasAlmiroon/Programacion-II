@@ -1,6 +1,8 @@
 package reality;
 import java.util.ArrayList;
 
+import filtros.Criterio;
+
 public class Participante extends ElementoAbstracto{
 
     private String apellido;
@@ -27,24 +29,24 @@ public class Participante extends ElementoAbstracto{
     }
        
     public void addInstrumento(String i) {
-    	if(!instrumentos.contains(i.toLowerCase())) {
-        	instrumentos.add(i.toLowerCase());    		
+    	if(!instrumentos.contains(i)) {
+        	instrumentos.add(i);    		
     	} else {
     		System.out.println("El instrumento " + i + " ya está agregado en " + this.getNombre());
     	}
     }
     
     public void addIdioma(String i) {
-    	if(!idiomas.contains(i.toLowerCase())) {
-        	idiomas.add(i.toLowerCase());    		
+    	if(!idiomas.contains(i)) {
+        	idiomas.add(i);    		
     	} else {
     		System.out.println("El idioma " + i + " ya está agregado en " + this.getNombre());
     	}
     }
     
     public void addGenero(String g) {
-    	if(!generos.contains(g.toLowerCase())) {
-    		generos.add(g.toLowerCase());
+    	if(!generos.contains(g)) {
+    		generos.add(g);
     	} else {
     		System.out.println("El genero " + g + " ya está agregado en " + this.getNombre());
     	}
@@ -63,11 +65,7 @@ public class Participante extends ElementoAbstracto{
 	
 	@Override
     public ArrayList<String> getIdiomas() {
-		ArrayList<String> copia = new ArrayList<>();
-		for (int i = 0; i < idiomas.size(); i++) {
-			copia.add(idiomas.get(i));
-		}
-		return copia;
+		return new ArrayList<>(idiomas);
 	}
 	
 	@Override
@@ -106,6 +104,16 @@ public class Participante extends ElementoAbstracto{
     @Override
 	public boolean sabeIdioma(String i) {
 		return this.getIdiomas().contains(i);
+	}
+
+	
+    @Override
+	public ArrayList<ElementoAbstracto> buscar(Criterio c) {
+		ArrayList<ElementoAbstracto> aux = new ArrayList<>();
+		if(c.cumple(this)) {
+			aux.add(this);
+		}
+		return aux;
 	}
 
 }

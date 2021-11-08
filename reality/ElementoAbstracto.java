@@ -2,6 +2,8 @@ package reality;
 
 import java.util.ArrayList;
 
+import filtros.Criterio;
+
 public abstract class ElementoAbstracto {
 
 	private String nombre;
@@ -15,6 +17,7 @@ public abstract class ElementoAbstracto {
 	public abstract ArrayList<String> getIdiomas();
 	public abstract ArrayList<String> getInstrumentos();
 	public abstract int cantMiembros();
+	public abstract ArrayList<ElementoAbstracto> buscar(Criterio c);
 	
     public String getNombre() {
         return nombre;
@@ -30,7 +33,7 @@ public abstract class ElementoAbstracto {
 	}
     
 	public boolean tocaInstrumento(String i) {
-    	return this.getIdiomas().contains(i);
+    	return this.getInstrumentos().contains(i);
     }
 	    
 	public abstract boolean sabeIdioma(String i);
