@@ -81,19 +81,7 @@ public class Participante extends ElementoAbstracto{
 	public int cantMiembros() {
 		return 1;
 	}
-    public boolean equals(Object o1){
-        try {
-            Participante aux = (Participante)o1;
-            if(super.getNombre().equals(aux.getNombre()) && apellido.equals(aux.getApellido())){
-                return true;
-            }else{
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-
-    }
+    
 
 	
     @Override
@@ -132,6 +120,16 @@ public class Participante extends ElementoAbstracto{
 			return copia;
 		}
 		return null;
+	}
+	
+	@Override
+	public int cantMiembrosTocanInstrumento(Musica m) {
+		for (String instrumento: instrumentos) {
+			if(m.requiereInstrumento(instrumento)) {
+				return 1;
+			}
+		}
+		return 0;
 	}
 
 }

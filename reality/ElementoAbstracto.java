@@ -19,7 +19,7 @@ public abstract class ElementoAbstracto {
 	public abstract int cantMiembros();
 	public abstract ArrayList<ElementoAbstracto> buscar(Criterio c);
 	public abstract ElementoAbstracto copia(Criterio c);
-	
+	public abstract int cantMiembrosTocanInstrumento(Musica m);
     public String getNombre() {
         return nombre;
     }
@@ -33,6 +33,20 @@ public abstract class ElementoAbstracto {
 		return nombre;
 	}
     
+	public boolean equals(Object o1){
+        try {
+            Participante aux = (Participante)o1;
+            if(this.getNombre().equals(aux.getNombre())){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+	}
+
+	
 	public boolean tocaInstrumento(String i) {
     	return this.getInstrumentos().contains(i);
     }

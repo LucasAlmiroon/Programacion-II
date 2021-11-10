@@ -9,6 +9,7 @@ import filtros.CriterioIdioma;
 import reality.Banda;
 import reality.Coach;
 import reality.CoachExigente;
+import reality.Musica;
 import reality.Participante;
 
 public class Concurso {
@@ -46,8 +47,10 @@ public class Concurso {
         
         //ADD GENEROS
         Lucas.addInstrumento("Guitarra");
+        Lucas.addInstrumento("Bajo");
         Guido.addInstrumento("Bajo");
         Carlos.addInstrumento("Bateria");
+        
         
         Banda banda1 = new Banda("Banda 1");
         Banda banda2 = new Banda("Banda 2");
@@ -88,8 +91,10 @@ public class Concurso {
          */
         
         //System.out.println(banda1.sabeIdioma("Ingles"));
-    
-      
+        Musica m = new Musica("T", "I", "I2");
+        m.addInstrumentos("Bajo");
+        m.addInstrumentos("Bateria");
+        System.out.println(banda1.cantMiembrosTocanInstrumento(m));
       
       
       

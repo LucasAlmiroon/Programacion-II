@@ -68,7 +68,9 @@ public class Musica {
 		return copia;
 	}
 
-   
+   public boolean requiereInstrumento(String i) {
+	   return this.getInstrumentos().contains(i);
+   }
     
     public boolean equals(Object o1){
         try {

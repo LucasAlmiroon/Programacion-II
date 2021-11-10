@@ -14,8 +14,15 @@ public class CriterioTemaMusical extends Criterio{
 
 
 	@Override
-	/*public boolean cumple(ElementoAbstracto p) {
-		return 
-	}*/
+	public boolean cumple(ElementoAbstracto p) {
+		if(p.sabeIdioma(temaMusical.getIdioma())) {
+			for (String g: temaMusical.getGeneros()) {
+				if(p.leGustaGenero(g)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 }

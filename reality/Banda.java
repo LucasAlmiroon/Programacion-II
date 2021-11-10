@@ -146,4 +146,13 @@ public class Banda extends ElementoAbstracto{
 		return this.cantMiembros() > 0;
 	}
 	
+	@Override
+	public int cantMiembrosTocanInstrumento(Musica m) {
+		int total = 0;
+		for (ElementoAbstracto miembro: miembros) {
+			total += miembro.cantMiembrosTocanInstrumento(m);
+		}
+		return total;
+	}
+	
 }
