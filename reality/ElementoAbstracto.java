@@ -18,6 +18,7 @@ public abstract class ElementoAbstracto {
 	public abstract ArrayList<String> getInstrumentos();
 	public abstract int cantMiembros();
 	public abstract ArrayList<ElementoAbstracto> buscar(Criterio c);
+	public abstract ElementoAbstracto copia(Criterio c);
 	
     public String getNombre() {
         return nombre;

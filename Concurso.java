@@ -30,12 +30,13 @@ public class Concurso {
         Carlos.addGenero("Tango");
         Carlos.addGenero("Cumbia");
         Carlos.addGenero("Pop");
-      //ADD IDIOMAS
+        
+        //ADD IDIOMAS
         Lucas.addIdioma("Ingles");
         Lucas.addIdioma("Español");
         
         Guido.addIdioma("Ingles");
-        Guido.addIdioma("Franes");
+        Guido.addIdioma("Frances");
         
         Carlos.addIdioma("Ingles");
         Carlos.addIdioma("Portugues");
@@ -43,8 +44,13 @@ public class Concurso {
         solo.addIdioma("Ingles");
         solo.addIdioma("Chino");
         
+        //ADD GENEROS
+        Lucas.addInstrumento("Guitarra");
+        Guido.addInstrumento("Bajo");
+        Carlos.addInstrumento("Bateria");
+        
         Banda banda1 = new Banda("Banda 1");
-        Banda banda2 = new Banda("Banda solista");
+        Banda banda2 = new Banda("Banda 2");
                 
         Coach coach1 = new Coach("Coach 1");
         
@@ -54,12 +60,37 @@ public class Concurso {
         banda1.addMiembro(Guido);
         banda1.addMiembro(banda2);
         
-        /*coach1.addMiembro(banda2);
+        coach1.addMiembro(banda2);
         coach1.addMiembro(banda1);
-        coach1.addMiembro(solo);*/
+        coach1.addMiembro(solo);
         
-        System.out.println(banda1.getGeneros());
+        CriterioGenero Rumba = new CriterioGenero("Rumba");
+        CriterioIdioma Ingles = new CriterioIdioma("Ingles");
+        
+        //System.out.println(Guido.leGustaGenero("Rumba"));
+        //System.out.println(banda1.leGustaGenero("Rumba"));
+        
+        
+        /*
+         * BANDA 1:
+         			-Lucas:		-Español	-Ingles
+         						-Tango		-Pop
+         					
+         			-Guido: 	-Ingles		-Frances
+         						-Tango		-Pop	-Cumbia  -Rumba
+         					
+         					
+         	BANDA 2:
+         			-Carlos: 	-Ingles		-Portugues
+         						-Tango		-Pop	-Cumbia
+         			
+         			
+         */
+        
+        //System.out.println(banda1.sabeIdioma("Ingles"));
     
+      
+      
       
       
     }

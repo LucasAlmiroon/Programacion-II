@@ -111,9 +111,27 @@ public class Participante extends ElementoAbstracto{
 	public ArrayList<ElementoAbstracto> buscar(Criterio c) {
 		ArrayList<ElementoAbstracto> aux = new ArrayList<>();
 		if(c.cumple(this)) {
-			aux.add(this);
+			aux.add(this.copia(c));
 		}
 		return aux;
+	}
+
+	@Override
+	public ElementoAbstracto copia(Criterio c) {
+		if(c.cumple(this)) {
+			Participante copia = new Participante(this.getNombre(), this.getApellido(), (int)this.getEdad());
+			for (String g: generos) {
+				copia.addGenero(g);
+			}
+			for (String i: idiomas) {
+				copia.addGenero(i);
+			}
+			for (String i: instrumentos) {
+				copia.addGenero(i);
+			}
+			return copia;
+		}
+		return null;
 	}
 
 }

@@ -68,6 +68,8 @@ public class Musica {
 		return copia;
 	}
 
+   
+    
     public boolean equals(Object o1){
         try {
             Musica aux = (Musica) o1;

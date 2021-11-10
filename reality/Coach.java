@@ -12,7 +12,7 @@ public class Coach extends Banda{
     
     public ArrayList<String> getGeneros(){
     	ArrayList<String> generos = new ArrayList<>();
-		for (ElementoAbstracto p: super.getMiembros()) {
+		for (ElementoAbstracto p: getMiembros()) {
 			ArrayList<String> generosParciales = new ArrayList<>();
 			generosParciales = p.getGeneros();
 			for (String g: generosParciales) {
@@ -26,13 +26,13 @@ public class Coach extends Banda{
     }
 
     
-    /*public ArrayList<ElementoAbstracto> buscar(Criterio c){
+    public ArrayList<ElementoAbstracto> buscar(Criterio c){
     	ArrayList<ElementoAbstracto> aux = new ArrayList<>();
-    	for (ElementoAbstracto p: participantes) {
-			if(c.cumple(p)) {
-				aux.add(p);
-			}
+    	for (ElementoAbstracto p: getMiembros()) {
+			//if(c.cumple(p)) {
+				aux.addAll(p.buscar(c));
+			//}
 		}
     	return aux;
-    }*/
+    }
 }

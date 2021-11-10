@@ -93,21 +93,22 @@ public class Banda extends ElementoAbstracto{
 
 	@Override
 	public boolean leGustaGenero(String g) {
-		boolean leGusta = false;
+		/*boolean leGusta = false;
 		for (ElementoAbstracto m: miembros) {
 			leGusta = m.leGustaGenero(g);
-			System.out.println(leGusta);
 		}
-		return leGusta;
+		return leGusta;*/
+		return this.getGeneros().contains(g);
 	}
 	
 	@Override
 	public boolean sabeIdioma(String i) {
-		boolean sabe = false;
+		/*boolean sabe = false;
 		for (ElementoAbstracto m: miembros) {
 			sabe = m.sabeIdioma(i);
 		}
-		return sabe;
+		return sabe;*/
+		return this.getIdiomas().contains(i);
 	}
 
 	
@@ -115,13 +116,34 @@ public class Banda extends ElementoAbstracto{
 	public ArrayList<ElementoAbstracto> buscar(Criterio c) {
 		ArrayList<ElementoAbstracto> aux = new ArrayList<>();
 		if(c.cumple(this)) {
-			aux.add(this);
+			aux.add(this.copia(c));
 			return aux;
 		}
 		for (ElementoAbstracto m: miembros) {
 			aux.addAll(m.buscar(c));
+			//System.out.println(m);
 		}
 		return aux;
+	}
+
+	@Override
+	public ElementoAbstracto copia(Criterio c) {
+		Banda copia = new Banda(this.getNombre());
+		for (ElementoAbstracto m: miembros) {
+			ElementoAbstracto copiaHijo = m.copia(c);
+			if(copiaHijo != null) {
+				copia.addMiembro(copiaHijo);
+			}
+		}
+		if(copia.tieneElementos()) { //para no agregar copias vacias
+			return copia;
+		} else {
+			return null;
+		}
+	}
+
+	private boolean tieneElementos() {
+		return this.cantMiembros() > 0;
 	}
 	
 }

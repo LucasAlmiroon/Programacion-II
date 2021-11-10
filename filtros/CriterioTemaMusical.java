@@ -14,8 +14,8 @@ public class CriterioTemaMusical extends Criterio{
 
 
 	@Override
-	public boolean cumple(ElementoAbstracto p) {
-		return p.sabeIdioma(temaMusical.getIdioma());
-	}
+	/*public boolean cumple(ElementoAbstracto p) {
+		return 
+	}*/
 
 }
