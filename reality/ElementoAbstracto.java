@@ -20,7 +20,8 @@ public abstract class ElementoAbstracto {
 	public abstract ArrayList<ElementoAbstracto> buscar(Criterio c);
 	public abstract ElementoAbstracto copia(Criterio c);
 	public abstract int cantMiembrosTocanInstrumento(Musica m);
-    public String getNombre() {
+    
+	public String getNombre() {
         return nombre;
     }
 
@@ -35,7 +36,7 @@ public abstract class ElementoAbstracto {
     
 	public boolean equals(Object o1){
         try {
-            Participante aux = (Participante)o1;
+        	ElementoAbstracto aux = (ElementoAbstracto)o1;
             if(this.getNombre().equals(aux.getNombre())){
                 return true;
             }else{

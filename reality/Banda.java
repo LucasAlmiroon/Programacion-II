@@ -93,25 +93,14 @@ public class Banda extends ElementoAbstracto{
 
 	@Override
 	public boolean leGustaGenero(String g) {
-		/*boolean leGusta = false;
-		for (ElementoAbstracto m: miembros) {
-			leGusta = m.leGustaGenero(g);
-		}
-		return leGusta;*/
 		return this.getGeneros().contains(g);
 	}
 	
 	@Override
 	public boolean sabeIdioma(String i) {
-		/*boolean sabe = false;
-		for (ElementoAbstracto m: miembros) {
-			sabe = m.sabeIdioma(i);
-		}
-		return sabe;*/
 		return this.getIdiomas().contains(i);
 	}
 
-	
 	@Override
 	public ArrayList<ElementoAbstracto> buscar(Criterio c) {
 		ArrayList<ElementoAbstracto> aux = new ArrayList<>();
@@ -121,7 +110,6 @@ public class Banda extends ElementoAbstracto{
 		}
 		for (ElementoAbstracto m: miembros) {
 			aux.addAll(m.buscar(c));
-			//System.out.println(m);
 		}
 		return aux;
 	}

@@ -82,8 +82,6 @@ public class Participante extends ElementoAbstracto{
 		return 1;
 	}
     
-
-	
     @Override
 	public boolean leGustaGenero(String g) {
 		return this.getGeneros().contains(g);
@@ -94,7 +92,6 @@ public class Participante extends ElementoAbstracto{
 		return this.getIdiomas().contains(i);
 	}
 
-	
     @Override
 	public ArrayList<ElementoAbstracto> buscar(Criterio c) {
 		ArrayList<ElementoAbstracto> aux = new ArrayList<>();

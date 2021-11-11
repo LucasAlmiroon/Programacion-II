@@ -1,19 +1,23 @@
 package reality;
 import java.util.ArrayList;
 
+import filtros.Criterio;
+
 public class Musica {
     private String titulo;
     private String idioma;
     private String interprete;
     private ArrayList <String> generos;
     private ArrayList <String> instrumentos;
+    private Criterio criterioInterpretacion;
 
-    public Musica (String t, String i, String interprete){
+    public Musica (String t, String i, String interprete, Criterio c){
         titulo = t;
         idioma = i;
         this.interprete = interprete;
         generos = new ArrayList<>();
         instrumentos = new ArrayList<>();
+        criterioInterpretacion = c;
     }
 
     public String getTitulo() {
@@ -68,9 +72,13 @@ public class Musica {
 		return copia;
 	}
 
-   public boolean requiereInstrumento(String i) {
+    public boolean requiereInstrumento(String i) {
 	   return this.getInstrumentos().contains(i);
-   }
+    }
+    
+    public boolean puedeInterpretarlo(ElementoAbstracto e) {
+    	return criterioInterpretacion.cumple(e);
+    }
     
     public boolean equals(Object o1){
         try {

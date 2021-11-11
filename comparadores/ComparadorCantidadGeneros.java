@@ -4,7 +4,11 @@ import java.util.Comparator;
 
 import reality.ElementoAbstracto;
 
-public class ComparadorCantidadGeneros implements Comparator<ElementoAbstracto>{
+public class ComparadorCantidadGeneros extends Comparador{
+
+	public ComparadorCantidadGeneros(String nombre) {
+		super(nombre);
+	}
 
 	@Override
 	public int compare(ElementoAbstracto o1, ElementoAbstracto o2) {
