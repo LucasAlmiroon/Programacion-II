@@ -56,7 +56,10 @@ public class Produccion {
 		ElementoAbstracto p1 = coach1.getMejorParticipante(metodoJuego);
 		ElementoAbstracto p2 = coach2.getMejorParticipante(metodoJuego);
 		ElementoAbstracto ganador = getGanador(p1, p2);
-		System.out.println("Se juega con el metodo de juego " + metodoJuego + " entre " + p1 + " y " + p2 + " y ganó " + ganador);
+		System.out.println("------------BATALLA CON METODO " + metodoJuego + "------------");
+		System.out.println("Compiten los participantes " + p1 + " (del equipo de " + coach1 + ") y " + p2 
+				+ " (del equipo de " + coach2 + ") y el ganador es " + ganador);
+		System.out.println("------------FIN DE LA BATALLA------------");
 	}
 
 	public ArrayList<Coach> getCoaches(){

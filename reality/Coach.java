@@ -122,6 +122,11 @@ public class Coach /*extends Banda*/{
         }
 	}
 
+	@Override
+	public String toString() {
+		return nombre;
+	}
+
 
 
 }

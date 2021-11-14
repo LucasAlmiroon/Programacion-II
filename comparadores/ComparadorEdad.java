@@ -1,6 +1,6 @@
 package comparadores;
 
-import java.util.Comparator;
+
 
 import reality.ElementoAbstracto;
 

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import comparadores.ComparadorCantidadIdiomas;
 import comparadores.ComparadorEdad;
+import filtros.CriterioEdadMayor;
 import filtros.CriterioGenero;
 import filtros.CriterioIdioma;
 import reality.Banda;
@@ -21,6 +23,15 @@ public class Concurso {
         Participante Carlos = new Participante("Carlos", "Zoppo", 40);
         Participante solo = new Participante("Solo", "Zoppo", 40);
         
+        Banda banda1 = new Banda("Banda 1");
+        Banda banda2 = new Banda("Banda 2");
+                
+        Coach coach1 = new Coach("Coach 1");
+        Coach coach2 = new Coach("Coach 2");
+        
+        CriterioEdadMayor criterioEdad = new CriterioEdadMayor(18);
+        CoachExigente pachano = new CoachExigente("Anibal", criterioEdad);
+        pachano.addMiembro(Lucas);
         //ADD GENEROS
         Lucas.addGenero("Tango");
         Lucas.addGenero("Pop");
@@ -53,11 +64,7 @@ public class Concurso {
         Guido.addInstrumento("Bajo");
         Carlos.addInstrumento("Bateria");
         
-        
-        Banda banda1 = new Banda("Banda 1");
-        Banda banda2 = new Banda("Banda 2");
-                
-        Coach coach1 = new Coach("Coach 1");
+
         
         banda2.addMiembro(Carlos);
         
@@ -98,7 +105,7 @@ public class Concurso {
         m.addInstrumentos("Bateria");
         //System.out.println(banda1.cantMiembrosTocanInstrumento(m));
       
-        Coach coach2 = new Coach("Coach 2");
+
         Participante Lucas1 = new Participante("Lucas1", "Almiron", 100);
         Participante Guido2 = new Participante("Guido1", "Zoppo", 80);
         Participante Carlos2 = new Participante("Carlos1", "Zoppo", 90);
@@ -111,6 +118,10 @@ public class Concurso {
         
         prod.addCoach(coach2);
         prod.addCoach(coach1);
+        prod.organizarBatalla();
+        
+        ComparadorCantidadIdiomas cci = new ComparadorCantidadIdiomas("Comparador Idiomas");
+        prod.setMetodoJuego(cci);
         prod.organizarBatalla();
         //System.out.println(prod.getCoachBatallar());
         //System.out.println(coach2.getMejorParticipante(ce));
