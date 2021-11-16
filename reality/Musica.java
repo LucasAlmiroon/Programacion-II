@@ -92,4 +92,10 @@ public class Musica {
             return false;
         }
     }
+
+	public void setCriterioInterpretacion(Criterio criterioInterpretacion) {
+		this.criterioInterpretacion = criterioInterpretacion;
+	}
+    
+    
 }
